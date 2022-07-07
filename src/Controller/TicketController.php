@@ -9,6 +9,8 @@ use Psr\Log\LoggerInterface;
 use App\Repository\TicketRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use App\Entity\Ticket;
+use Symfony\Component\HttpFoundation\Request;
+use App\Form\Type\TicketType;
 
 class TicketController extends AbstractController
 {
@@ -25,10 +27,34 @@ class TicketController extends AbstractController
    }
 
    /**
-   * @Route("/ticket/{id}", name="show")
+   * @Route("/ticket/create" ,name="ticket_create")
+   */
+   public function newTicket(Request $request, ManagerRegistry $doctrine): Response
+   {
+     $ticket = new Ticket();
+
+     $form = $this->createForm(TicketType::class, $ticket);
+     $form->handleRequest($request);
+     if ($form->isSubmitted() && $form->isValid())
+     {
+       $entityManager = $doctrine->getManager();
+       $ticket= $form->getData();
+       $entityManager->persist($ticket);
+       $entityManager->flush();
+
+       return $this->redirectToRoute('index');
+     }
+
+     return $this->renderForm('ticket/new.html.twig', [
+         'form' => $form,
+     ]);
+   }
+
+   /**
+   * @Route("/ticket/{id}", name="ticket_show")
    */
    public function show(Ticket $ticket) :Response
-   {     
+   {
       return $this->render('ticket/show.html.twig', [
          'ticket' => $ticket,
      ]);

@@ -54,22 +54,23 @@ class StatusController extends AbstractController
   }
 
   /**
-   * @Route("/edit/{id}/{name}", name="status_update")
+   * @Route("/edit/{id}", name="status_update")
    */
-  public function update(ManagerRegistry $doctrine, int $id,string $name): Response
+  public function update(Request $request,ManagerRegistry $doctrine,Status $status): Response
   {
-    $entityManager = $doctrine->getManager();
-    $status = $entityManager->getRepository(Status::class)->find($id);
-
-      if (!$status)
-      {
-        throw $this->createNotFoundException(
-          'No product found for id '.$id
-        );
-      }
-      $status->setName($name);
+    $form = $this->createForm(StatusType::class,$status);
+    $form->handleRequest($request);
+    if ($form->isSubmitted() && $form->isValid()){
+      echo "test";
+      $entityManager = $doctrine->getManager();
+      $status = $form->getData();
+      $entityManager->persist($status);
       $entityManager->flush();
-      return $this->redirectToRoute('Status_show');
+      return $this->redirectToRoute('status_show');
+    }
+    return $this->renderForm('status/new.html.twig', [
+        'form' => $form,
+    ]);
   }
 
   /**
@@ -77,12 +78,12 @@ class StatusController extends AbstractController
    */
   public function delete(ManagerRegistry $doctrine, int $id): Response
   {
-    /*$entityManager = $doctrine->getManager();
+    $entityManager = $doctrine->getManager();
     $status = $entityManager->getRepository(Status::class)->find($id);
     $entityManager->remove($status);
     $entityManager->flush();
-    return $this->redirectToRoute('Status_show');*/
-    $form = $this->createForm(StatusType::class, $status);
+    return $this->redirectToRoute('status_show');
+    //$form = $this->createForm(StatusType::class, $status);
   }
 }
 ?>
