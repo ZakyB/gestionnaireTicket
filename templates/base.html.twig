@@ -18,18 +18,17 @@
       <!-- Navbar -->
       {% block navbar %}
       <div class="w3-bar w3-border w3-light-grey">
-        {% set currentPath = path(app.request.attributes.get('_route'))%}
+        {# set currentPath = path(app.request.attributes.get('_route'))%}
         {% if currentPath starts with '/status/' %}
-        <a href="#" class="w3-bar-item w3-button">Home</a>
-        <a href="{{path('Status_create')}}" class="w3-bar-item w3-button">Create</a>
-        <a href="{{path('Status_show')}}" class="w3-bar-item w3-button">Read</a>
-        <a href="#" class="w3-bar-item w3-button">Delete</a>
-        <a href="#" class="w3-bar-item w3-button">Update</a>
+          <a href="#" class="w3-bar-item w3-button">Home</a>
+          <a href="{{path('status_create')}}" class="w3-bar-item w3-button">Create</a>
+          <a href="{{path('status_show')}}" class="w3-bar-item w3-button">Read</a>
+          <a href="#" class="w3-bar-item w3-button">Delete</a>
+          <a href="#" class="w3-bar-item w3-button">Update</a>
         {% else %}
-        <a href="#" class="w3-bar-item w3-button">Home</a>
-        <a href="#" class="w3-bar-item w3-button">Link 1</a>
-        <a href="#" class="w3-bar-item w3-button">Link 2</a>
-        {% endif %}
+          <a href="/" class="w3-bar-item w3-button">Home</a>
+        {% endif #}
+        <a href="/" class="w3-bar-item w3-button">Home</a>
       </div>
       {% endblock %}
 
@@ -37,8 +36,7 @@
       <div class="w3-sidebar w3-light-grey w3-bar-block" style="width:10%">
         <h3 class="w3-bar-item">Menu</h3>
         <a href="{{path('index')}}" class="w3-bar-item w3-button">Ticket</a>
-        <a href="{{path('Status_show')}}" class="w3-bar-item w3-button">Status</a>
-        <a href="#" class="w3-bar-item w3-button">Link 3</a>
+        <a href="{{path('status_show')}}" class="w3-bar-item w3-button">Status</a>
       </div>
         <div style="margin-left:10%">
         {% block body %}{% endblock %}

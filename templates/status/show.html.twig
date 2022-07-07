@@ -1,18 +1,27 @@
 {% extends 'base.html.twig' %}
+
 {% block title %} Status {% endblock %}
+
 {% block body %}
-<table style="border-collapse: collapse; width: 100%;" border="1">
-<tbody>
-<tr>
-<td>Id</td>
-<td>Name</td>
-</tr>
-{% for status_info in status%}
-<tr>
-<td> {{ status_info.id }}</td>
-<td> {{ status_info.name }}</td>
-</tr>
-{% endfor %}
-</tbody>
-</table>
+    <a href="{{ path('status_create') }}">Ajouter un status</a>
+
+    <table style="border-collapse: collapse; width: 100%;" border="1">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>ACtion</th>
+            </tr>
+            {% for status_info in status%}
+                <tr>
+                    <td> {{ status_info.id }}</td>
+                    <td> {{ status_info.name }}</td>
+                    <td>
+                        <a href="{{ path('status_update', {id: status_info.id, name: status_info.name}) }}">Editer</a>
+                        <a href="{{ path('status_delete', {id: status_info.id}) }}">Suppmier</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 {% endblock %}

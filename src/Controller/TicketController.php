@@ -9,11 +9,11 @@ use Psr\Log\LoggerInterface;
 use App\Repository\TicketRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use App\Entity\Ticket;
+
 class TicketController extends AbstractController
 {
-
    /**
-   * @Route("/ticket", name="index")
+   * @Route("/", name="index")
    */
    public function index(TicketRepository $TicketRepository,ManagerRegistry $doctrine) :Response
    {
@@ -23,11 +23,13 @@ class TicketController extends AbstractController
          'tickets' => $tickets,
      ]);
    }
+
    /**
    * @Route("/ticket/{id}", name="show")
    */
    public function show(Ticket $ticket) :Response
-   {     return $this->render('ticket/show.html.twig', [
+   {     
+      return $this->render('ticket/show.html.twig', [
          'ticket' => $ticket,
      ]);
    }
