@@ -1,18 +1,20 @@
 {% extends 'base.html.twig' %}
 {% block title %} {{ ticket.titre }} {% endblock %}
 {% block body %}
+
 <div style="border: 1px solid black">
 
   <div>
-  <h3>Titre:</h3>
-  <span style="border: 1px solid black">{{ ticket.titre }}</span>
-  <h3>Auteur:</h3>
-  <span style="border: 1px solid black"> </span>
-  <h3>Status:</h3>
-  <span style="border: 1px solid black"> </span>
-  <h3>Message:</h3>
-  <span style="border: 1px solid black">{{ ticket.message }}</span>
+    <h3>Titre:</h3>
+      <span style="border: 1px solid black">{{ ticket.titre }}</span>
+    <h3>Auteur:</h3>
+      <span style="border: 1px solid black"> </span>
+    <h3>Status:</h3>
+      <span style="border: 1px solid black">{{ ticket.status.name }}</span>
+    <h3>Message:</h3>
+      <span style="border: 1px solid black">{{ ticket.message }}</span>
   </div>
+
 </div>
 
 {% endblock %}

@@ -1,25 +1,29 @@
 {% extends 'base.html.twig' %}
 {% block body %}
 <a href="{{ path('ticket_create') }}">Ajouter un titre</a>
-<table style="border-collapse: collapse; width: 100%;" border="1">
-<tbody>
-<tr>
-<td style="width: 50%;">Titre</td>
-<td style="width: 10%;">Auteur</td>
-<td style="width: 10%;">Date</td>
-<td style="width: 10%;">Status</td>
-<td style="width: 10%;">Action</td>
-</tr>
-{% for ticket in tickets %}
-<tr>
-<td>{{ ticket.titre }}</td>
-<td></td>
-<td>{{ ticket.date|date('d-m-Y') }}</td>
-<td>{{ ticket.status.name }}</td>
-<td></td>
-</tr>
-{% endfor %}
-</tbody>
+  <table style="border-collapse: collapse; width: 80%;" border="1">
+    <tbody>
+      <tr>
+        <th>Titre</th>
+        <th>Auteur</th>
+        <th>Date</th>
+        <th>Status</th>
+        <th>Action</th>
+      </tr>
+      {% for ticket in tickets %}
+        <tr>
+          <td>{{ ticket.titre }}</td>
+          <td></td>
+          <td>{{ ticket.date|date('d-m-Y') }}</td>
+          <td>{{ ticket.status.name }}</td>
+          <td>
+            <a href="{{ path('ticket_show', {id: ticket.id}) }}">Voir</a>
+            <a href="{{ path('ticket_update', {id: ticket.id}) }}">Editer</a>
+            <a href="{{ path('ticket_delete', {id :ticket.id}) }}">Supprimer</a>
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
 </table>
 
 {% endblock %}

@@ -1,0 +1,88 @@
+\hypertarget{class_app_1_1_controller_1_1_status_controller}{}\doxysection{Status\+Controller Class Reference}
+\label{class_app_1_1_controller_1_1_status_controller}\index{StatusController@{StatusController}}
+
+
+Inheritance diagram for Status\+Controller\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=175pt]{class_app_1_1_controller_1_1_status_controller__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Status\+Controller\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=175pt]{class_app_1_1_controller_1_1_status_controller__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_app_1_1_controller_1_1_status_controller_a7a2e388d4bb7a2f537cb0cc5c7da4b44}{new\+Status}} (Request \$request, Manager\+Registry \$doctrine)
+\item 
+\mbox{\hyperlink{class_app_1_1_controller_1_1_status_controller_abb0bd581314002f5e3a7794c077c6a1a}{show\+Status}} (\mbox{\hyperlink{class_app_1_1_repository_1_1_status_repository}{Status\+Repository}} \$\mbox{\hyperlink{class_app_1_1_repository_1_1_status_repository}{Status\+Repository}}, Manager\+Registry \$doctrine)
+\item 
+\mbox{\hyperlink{class_app_1_1_controller_1_1_status_controller_abdb85f33b341972c39d8d316ed5816ae}{update}} (Request \$request, Manager\+Registry \$doctrine, \mbox{\hyperlink{class_app_1_1_entity_1_1_status}{Status}} \$status)
+\item 
+\mbox{\hyperlink{class_app_1_1_controller_1_1_status_controller_a06c8661458f7571421c5f98323bcc69f}{delete}} (Manager\+Registry \$doctrine, int \$id)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+@\+Route(\char`\"{}/status\char`\"{}) 
+
+Definition at line \mbox{\hyperlink{_status_controller_8php_source_l00015}{15}} of file \mbox{\hyperlink{_status_controller_8php_source}{Status\+Controller.\+php}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_app_1_1_controller_1_1_status_controller_a06c8661458f7571421c5f98323bcc69f}\label{class_app_1_1_controller_1_1_status_controller_a06c8661458f7571421c5f98323bcc69f}} 
+\index{StatusController@{StatusController}!delete@{delete}}
+\index{delete@{delete}!StatusController@{StatusController}}
+\doxysubsubsection{\texorpdfstring{delete()}{delete()}}
+{\footnotesize\ttfamily delete (\begin{DoxyParamCaption}\item[{Manager\+Registry}]{\$doctrine,  }\item[{int}]{\$id }\end{DoxyParamCaption})}
+
+@\+Route(\char`\"{}/delete/\{id\}\char`\"{}, name=\char`\"{}status\+\_\+delete\char`\"{}) 
+
+Definition at line \mbox{\hyperlink{_status_controller_8php_source_l00078}{78}} of file \mbox{\hyperlink{_status_controller_8php_source}{Status\+Controller.\+php}}.
+
+\mbox{\Hypertarget{class_app_1_1_controller_1_1_status_controller_a7a2e388d4bb7a2f537cb0cc5c7da4b44}\label{class_app_1_1_controller_1_1_status_controller_a7a2e388d4bb7a2f537cb0cc5c7da4b44}} 
+\index{StatusController@{StatusController}!newStatus@{newStatus}}
+\index{newStatus@{newStatus}!StatusController@{StatusController}}
+\doxysubsubsection{\texorpdfstring{newStatus()}{newStatus()}}
+{\footnotesize\ttfamily new\+Status (\begin{DoxyParamCaption}\item[{Request}]{\$request,  }\item[{Manager\+Registry}]{\$doctrine }\end{DoxyParamCaption})}
+
+@\+Route(\char`\"{}/create\char`\"{}, name=\char`\"{}status\+\_\+create\char`\"{}) 
+
+Definition at line \mbox{\hyperlink{_status_controller_8php_source_l00020}{20}} of file \mbox{\hyperlink{_status_controller_8php_source}{Status\+Controller.\+php}}.
+
+\mbox{\Hypertarget{class_app_1_1_controller_1_1_status_controller_abb0bd581314002f5e3a7794c077c6a1a}\label{class_app_1_1_controller_1_1_status_controller_abb0bd581314002f5e3a7794c077c6a1a}} 
+\index{StatusController@{StatusController}!showStatus@{showStatus}}
+\index{showStatus@{showStatus}!StatusController@{StatusController}}
+\doxysubsubsection{\texorpdfstring{showStatus()}{showStatus()}}
+{\footnotesize\ttfamily show\+Status (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_app_1_1_repository_1_1_status_repository}{Status\+Repository}}}]{\$\+Status\+Repository,  }\item[{Manager\+Registry}]{\$doctrine }\end{DoxyParamCaption})}
+
+@\+Route(\char`\"{}/show\char`\"{},name=\char`\"{}status\+\_\+show\char`\"{}) 
+
+Definition at line \mbox{\hyperlink{_status_controller_8php_source_l00047}{47}} of file \mbox{\hyperlink{_status_controller_8php_source}{Status\+Controller.\+php}}.
+
+\mbox{\Hypertarget{class_app_1_1_controller_1_1_status_controller_abdb85f33b341972c39d8d316ed5816ae}\label{class_app_1_1_controller_1_1_status_controller_abdb85f33b341972c39d8d316ed5816ae}} 
+\index{StatusController@{StatusController}!update@{update}}
+\index{update@{update}!StatusController@{StatusController}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily update (\begin{DoxyParamCaption}\item[{Request}]{\$request,  }\item[{Manager\+Registry}]{\$doctrine,  }\item[{\mbox{\hyperlink{class_app_1_1_entity_1_1_status}{Status}}}]{\$status }\end{DoxyParamCaption})}
+
+@\+Route(\char`\"{}/edit/\{id\}\char`\"{}, name=\char`\"{}status\+\_\+update\char`\"{}) 
+
+Definition at line \mbox{\hyperlink{_status_controller_8php_source_l00059}{59}} of file \mbox{\hyperlink{_status_controller_8php_source}{Status\+Controller.\+php}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+gestionnaire\+Tickets/src/\+Controller/\mbox{\hyperlink{_status_controller_8php}{Status\+Controller.\+php}}\end{DoxyCompactItemize}

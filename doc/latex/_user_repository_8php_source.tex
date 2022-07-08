@@ -1,0 +1,78 @@
+\hypertarget{_user_repository_8php_source}{}\doxysection{User\+Repository.\+php}
+\label{_user_repository_8php_source}\index{gestionnaireTickets/src/Repository/UserRepository.php@{gestionnaireTickets/src/Repository/UserRepository.php}}
+\mbox{\hyperlink{_user_repository_8php}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_user_repository_8php_source_l00001}00001 <?php}
+\DoxyCodeLine{\Hypertarget{_user_repository_8php_source_l00002}00002 }
+\DoxyCodeLine{\Hypertarget{_user_repository_8php_source_l00003}00003 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespace_app_1_1_repository}{App\(\backslash\)Repository}};}
+\DoxyCodeLine{\Hypertarget{_user_repository_8php_source_l00004}00004 }
+\DoxyCodeLine{\Hypertarget{_user_repository_8php_source_l00005}00005 use \mbox{\hyperlink{class_app_1_1_entity_1_1_user}{App\(\backslash\)Entity\(\backslash\)User}};}
+\DoxyCodeLine{\Hypertarget{_user_repository_8php_source_l00006}00006 use Doctrine\(\backslash\)Bundle\(\backslash\)DoctrineBundle\(\backslash\)Repository\(\backslash\)ServiceEntityRepository;}
+\DoxyCodeLine{\Hypertarget{_user_repository_8php_source_l00007}00007 use Doctrine\(\backslash\)Persistence\(\backslash\)ManagerRegistry;}
+\DoxyCodeLine{\Hypertarget{_user_repository_8php_source_l00008}00008 use Symfony\(\backslash\)Component\(\backslash\)Security\(\backslash\)Core\(\backslash\)Exception\(\backslash\)UnsupportedUserException;}
+\DoxyCodeLine{\Hypertarget{_user_repository_8php_source_l00009}00009 use Symfony\(\backslash\)Component\(\backslash\)Security\(\backslash\)Core\(\backslash\)User\(\backslash\)PasswordAuthenticatedUserInterface;}
+\DoxyCodeLine{\Hypertarget{_user_repository_8php_source_l00010}00010 use Symfony\(\backslash\)Component\(\backslash\)Security\(\backslash\)Core\(\backslash\)User\(\backslash\)PasswordUpgraderInterface;}
+\DoxyCodeLine{\Hypertarget{_user_repository_8php_source_l00011}00011 }
+\DoxyCodeLine{\Hypertarget{_user_repository_8php_source_l00020}\mbox{\hyperlink{class_app_1_1_repository_1_1_user_repository}{00020}} \textcolor{keyword}{class }\mbox{\hyperlink{class_app_1_1_repository_1_1_user_repository}{UserRepository}} \textcolor{keyword}{extends} ServiceEntityRepository implements PasswordUpgraderInterface}
+\DoxyCodeLine{\Hypertarget{_user_repository_8php_source_l00021}00021 \{}
+\DoxyCodeLine{\Hypertarget{_user_repository_8php_source_l00022}\mbox{\hyperlink{class_app_1_1_repository_1_1_user_repository_a38ea33dde11163765f358f5f10a3bc03}{00022}}     \textcolor{keyword}{public} \textcolor{keyword}{function} \mbox{\hyperlink{class_app_1_1_repository_1_1_user_repository_a38ea33dde11163765f358f5f10a3bc03}{\_\_construct}}(ManagerRegistry \$registry)}
+\DoxyCodeLine{\Hypertarget{_user_repository_8php_source_l00023}00023     \{}
+\DoxyCodeLine{\Hypertarget{_user_repository_8php_source_l00024}00024         parent::\_\_construct(\$registry, User::class);}
+\DoxyCodeLine{\Hypertarget{_user_repository_8php_source_l00025}00025     \}}
+\DoxyCodeLine{\Hypertarget{_user_repository_8php_source_l00026}00026 }
+\DoxyCodeLine{\Hypertarget{_user_repository_8php_source_l00027}\mbox{\hyperlink{class_app_1_1_repository_1_1_user_repository_accd34b7bfb58955090eddd6adee90275}{00027}}     \textcolor{keyword}{public} \textcolor{keyword}{function} \mbox{\hyperlink{class_app_1_1_repository_1_1_user_repository_accd34b7bfb58955090eddd6adee90275}{add}}(\mbox{\hyperlink{class_app_1_1_entity_1_1_user}{User}} \$entity, \textcolor{keywordtype}{bool} \$flush = \textcolor{keyword}{false}): void}
+\DoxyCodeLine{\Hypertarget{_user_repository_8php_source_l00028}00028     \{}
+\DoxyCodeLine{\Hypertarget{_user_repository_8php_source_l00029}00029         \$this-\/>getEntityManager()-\/>persist(\$entity);}
+\DoxyCodeLine{\Hypertarget{_user_repository_8php_source_l00030}00030 }
+\DoxyCodeLine{\Hypertarget{_user_repository_8php_source_l00031}00031         \textcolor{keywordflow}{if} (\$flush) \{}
+\DoxyCodeLine{\Hypertarget{_user_repository_8php_source_l00032}00032             \$this-\/>getEntityManager()-\/>flush();}
+\DoxyCodeLine{\Hypertarget{_user_repository_8php_source_l00033}00033         \}}
+\DoxyCodeLine{\Hypertarget{_user_repository_8php_source_l00034}00034     \}}
+\DoxyCodeLine{\Hypertarget{_user_repository_8php_source_l00035}00035 }
+\DoxyCodeLine{\Hypertarget{_user_repository_8php_source_l00036}\mbox{\hyperlink{class_app_1_1_repository_1_1_user_repository_a7149a8ee22440a0c2354454c1899759f}{00036}}     \textcolor{keyword}{public} \textcolor{keyword}{function} \textcolor{keyword}{remove}(\mbox{\hyperlink{class_app_1_1_entity_1_1_user}{User}} \$entity, \textcolor{keywordtype}{bool} \$flush = \textcolor{keyword}{false}): \textcolor{keywordtype}{void}}
+\DoxyCodeLine{\Hypertarget{_user_repository_8php_source_l00037}00037     \{}
+\DoxyCodeLine{\Hypertarget{_user_repository_8php_source_l00038}00038         \$this-\/>getEntityManager()-\/>remove(\$entity);}
+\DoxyCodeLine{\Hypertarget{_user_repository_8php_source_l00039}00039 }
+\DoxyCodeLine{\Hypertarget{_user_repository_8php_source_l00040}00040         \textcolor{keywordflow}{if} (\$flush) \{}
+\DoxyCodeLine{\Hypertarget{_user_repository_8php_source_l00041}00041             \$this-\/>getEntityManager()-\/>flush();}
+\DoxyCodeLine{\Hypertarget{_user_repository_8php_source_l00042}00042         \}}
+\DoxyCodeLine{\Hypertarget{_user_repository_8php_source_l00043}00043     \}}
+\DoxyCodeLine{\Hypertarget{_user_repository_8php_source_l00044}00044 }
+\DoxyCodeLine{\Hypertarget{_user_repository_8php_source_l00048}\mbox{\hyperlink{class_app_1_1_repository_1_1_user_repository_ac9400d686be3394bd280510b60ee642e}{00048}}     \textcolor{keyword}{public} \textcolor{keyword}{function} \mbox{\hyperlink{class_app_1_1_repository_1_1_user_repository_ac9400d686be3394bd280510b60ee642e}{upgradePassword}}(PasswordAuthenticatedUserInterface \$user, \textcolor{keywordtype}{string} \$newHashedPassword): void}
+\DoxyCodeLine{\Hypertarget{_user_repository_8php_source_l00049}00049     \{}
+\DoxyCodeLine{\Hypertarget{_user_repository_8php_source_l00050}00050         \textcolor{keywordflow}{if} (!\$user instanceof \mbox{\hyperlink{class_app_1_1_entity_1_1_user}{User}}) \{}
+\DoxyCodeLine{\Hypertarget{_user_repository_8php_source_l00051}00051             \textcolor{keywordflow}{throw} \textcolor{keyword}{new} UnsupportedUserException(sprintf(\textcolor{stringliteral}{'Instances of "{}\%s"{} are not supported.'}, \(\backslash\)get\_class(\$user)));}
+\DoxyCodeLine{\Hypertarget{_user_repository_8php_source_l00052}00052         \}}
+\DoxyCodeLine{\Hypertarget{_user_repository_8php_source_l00053}00053 }
+\DoxyCodeLine{\Hypertarget{_user_repository_8php_source_l00054}00054         \$user-\/>setPassword(\$newHashedPassword);}
+\DoxyCodeLine{\Hypertarget{_user_repository_8php_source_l00055}00055 }
+\DoxyCodeLine{\Hypertarget{_user_repository_8php_source_l00056}00056         \$this-\/>\mbox{\hyperlink{class_app_1_1_repository_1_1_user_repository_accd34b7bfb58955090eddd6adee90275}{add}}(\$user, \textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{_user_repository_8php_source_l00057}00057     \}}
+\DoxyCodeLine{\Hypertarget{_user_repository_8php_source_l00058}00058 }
+\DoxyCodeLine{\Hypertarget{_user_repository_8php_source_l00059}00059 \textcolor{comment}{//    /**}}
+\DoxyCodeLine{\Hypertarget{_user_repository_8php_source_l00060}00060 \textcolor{comment}{//     * @return User[] Returns an array of User objects}}
+\DoxyCodeLine{\Hypertarget{_user_repository_8php_source_l00061}00061 \textcolor{comment}{//     */}}
+\DoxyCodeLine{\Hypertarget{_user_repository_8php_source_l00062}00062 \textcolor{comment}{//    public function findByExampleField(\$value): array}}
+\DoxyCodeLine{\Hypertarget{_user_repository_8php_source_l00063}00063 \textcolor{comment}{//    \{}}
+\DoxyCodeLine{\Hypertarget{_user_repository_8php_source_l00064}00064 \textcolor{comment}{//        return \$this-\/>createQueryBuilder('u')}}
+\DoxyCodeLine{\Hypertarget{_user_repository_8php_source_l00065}00065 \textcolor{comment}{//            -\/>andWhere('u.exampleField = :val')}}
+\DoxyCodeLine{\Hypertarget{_user_repository_8php_source_l00066}00066 \textcolor{comment}{//            -\/>setParameter('val', \$value)}}
+\DoxyCodeLine{\Hypertarget{_user_repository_8php_source_l00067}00067 \textcolor{comment}{//            -\/>orderBy('u.id', 'ASC')}}
+\DoxyCodeLine{\Hypertarget{_user_repository_8php_source_l00068}00068 \textcolor{comment}{//            -\/>setMaxResults(10)}}
+\DoxyCodeLine{\Hypertarget{_user_repository_8php_source_l00069}00069 \textcolor{comment}{//            -\/>getQuery()}}
+\DoxyCodeLine{\Hypertarget{_user_repository_8php_source_l00070}00070 \textcolor{comment}{//            -\/>getResult()}}
+\DoxyCodeLine{\Hypertarget{_user_repository_8php_source_l00071}00071 \textcolor{comment}{//        ;}}
+\DoxyCodeLine{\Hypertarget{_user_repository_8php_source_l00072}00072 \textcolor{comment}{//    \}}}
+\DoxyCodeLine{\Hypertarget{_user_repository_8php_source_l00073}00073 }
+\DoxyCodeLine{\Hypertarget{_user_repository_8php_source_l00074}00074 \textcolor{comment}{//    public function findOneBySomeField(\$value): ?User}}
+\DoxyCodeLine{\Hypertarget{_user_repository_8php_source_l00075}00075 \textcolor{comment}{//    \{}}
+\DoxyCodeLine{\Hypertarget{_user_repository_8php_source_l00076}00076 \textcolor{comment}{//        return \$this-\/>createQueryBuilder('u')}}
+\DoxyCodeLine{\Hypertarget{_user_repository_8php_source_l00077}00077 \textcolor{comment}{//            -\/>andWhere('u.exampleField = :val')}}
+\DoxyCodeLine{\Hypertarget{_user_repository_8php_source_l00078}00078 \textcolor{comment}{//            -\/>setParameter('val', \$value)}}
+\DoxyCodeLine{\Hypertarget{_user_repository_8php_source_l00079}00079 \textcolor{comment}{//            -\/>getQuery()}}
+\DoxyCodeLine{\Hypertarget{_user_repository_8php_source_l00080}00080 \textcolor{comment}{//            -\/>getOneOrNullResult()}}
+\DoxyCodeLine{\Hypertarget{_user_repository_8php_source_l00081}00081 \textcolor{comment}{//        ;}}
+\DoxyCodeLine{\Hypertarget{_user_repository_8php_source_l00082}00082 \textcolor{comment}{//    \}}}
+\DoxyCodeLine{\Hypertarget{_user_repository_8php_source_l00083}00083 \}}
+
+\end{DoxyCode}

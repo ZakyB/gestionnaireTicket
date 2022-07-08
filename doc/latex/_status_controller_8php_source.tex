@@ -1,0 +1,79 @@
+\hypertarget{_status_controller_8php_source}{}\doxysection{Status\+Controller.\+php}
+\label{_status_controller_8php_source}\index{gestionnaireTickets/src/Controller/StatusController.php@{gestionnaireTickets/src/Controller/StatusController.php}}
+\mbox{\hyperlink{_status_controller_8php}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_status_controller_8php_source_l00001}00001 <?php}
+\DoxyCodeLine{\Hypertarget{_status_controller_8php_source_l00002}00002 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespace_app_1_1_controller}{App\(\backslash\)Controller}};}
+\DoxyCodeLine{\Hypertarget{_status_controller_8php_source_l00003}00003 use \mbox{\hyperlink{class_app_1_1_entity_1_1_status}{App\(\backslash\)Entity\(\backslash\)Status}};}
+\DoxyCodeLine{\Hypertarget{_status_controller_8php_source_l00004}00004 use \mbox{\hyperlink{class_app_1_1_form_1_1_type_1_1_status_type}{App\(\backslash\)Form\(\backslash\)Type\(\backslash\)StatusType}};}
+\DoxyCodeLine{\Hypertarget{_status_controller_8php_source_l00005}00005 use Symfony\(\backslash\)Component\(\backslash\)HttpFoundation\(\backslash\)Response;}
+\DoxyCodeLine{\Hypertarget{_status_controller_8php_source_l00006}00006 use Symfony\(\backslash\)Component\(\backslash\)Routing\(\backslash\)Annotation\(\backslash\)Route;}
+\DoxyCodeLine{\Hypertarget{_status_controller_8php_source_l00007}00007 use Symfony\(\backslash\)Bundle\(\backslash\)FrameworkBundle\(\backslash\)Controller\(\backslash\)AbstractController;}
+\DoxyCodeLine{\Hypertarget{_status_controller_8php_source_l00008}00008 use Symfony\(\backslash\)Component\(\backslash\)HttpFoundation\(\backslash\)Request;}
+\DoxyCodeLine{\Hypertarget{_status_controller_8php_source_l00009}00009 use Doctrine\(\backslash\)Persistence\(\backslash\)ManagerRegistry;}
+\DoxyCodeLine{\Hypertarget{_status_controller_8php_source_l00010}00010 use \mbox{\hyperlink{class_app_1_1_repository_1_1_status_repository}{App\(\backslash\)Repository\(\backslash\)StatusRepository}};}
+\DoxyCodeLine{\Hypertarget{_status_controller_8php_source_l00011}00011 }
+\DoxyCodeLine{\Hypertarget{_status_controller_8php_source_l00015}\mbox{\hyperlink{class_app_1_1_controller_1_1_status_controller}{00015}} \textcolor{keyword}{class }\mbox{\hyperlink{class_app_1_1_controller_1_1_status_controller}{StatusController}} \textcolor{keyword}{extends} AbstractController}
+\DoxyCodeLine{\Hypertarget{_status_controller_8php_source_l00016}00016 \{}
+\DoxyCodeLine{\Hypertarget{_status_controller_8php_source_l00020}\mbox{\hyperlink{class_app_1_1_controller_1_1_status_controller_a7a2e388d4bb7a2f537cb0cc5c7da4b44}{00020}}   \textcolor{keyword}{public} \textcolor{keyword}{function} \mbox{\hyperlink{class_app_1_1_controller_1_1_status_controller_a7a2e388d4bb7a2f537cb0cc5c7da4b44}{newStatus}}(Request \$request, ManagerRegistry \$doctrine): Response}
+\DoxyCodeLine{\Hypertarget{_status_controller_8php_source_l00021}00021   \{}
+\DoxyCodeLine{\Hypertarget{_status_controller_8php_source_l00022}00022       \textcolor{comment}{// just set up a fresh \$task object (remove the example data)}}
+\DoxyCodeLine{\Hypertarget{_status_controller_8php_source_l00023}00023       \$status = \textcolor{keyword}{new} \mbox{\hyperlink{class_app_1_1_entity_1_1_status}{Status}}();}
+\DoxyCodeLine{\Hypertarget{_status_controller_8php_source_l00024}00024 }
+\DoxyCodeLine{\Hypertarget{_status_controller_8php_source_l00025}00025       \$form = \$this-\/>createForm(StatusType::class, \$status);}
+\DoxyCodeLine{\Hypertarget{_status_controller_8php_source_l00026}00026 }
+\DoxyCodeLine{\Hypertarget{_status_controller_8php_source_l00027}00027       \$form-\/>handleRequest(\$request);}
+\DoxyCodeLine{\Hypertarget{_status_controller_8php_source_l00028}00028       \textcolor{keywordflow}{if} (\$form-\/>isSubmitted() \&\& \$form-\/>isValid()) \{}
+\DoxyCodeLine{\Hypertarget{_status_controller_8php_source_l00029}00029         \$entityManager = \$doctrine-\/>getManager();}
+\DoxyCodeLine{\Hypertarget{_status_controller_8php_source_l00030}00030         \textcolor{comment}{// \$form-\/>getData() holds the submitted values}}
+\DoxyCodeLine{\Hypertarget{_status_controller_8php_source_l00031}00031         \textcolor{comment}{// but, the original `\$task` variable has also been updated}}
+\DoxyCodeLine{\Hypertarget{_status_controller_8php_source_l00032}00032         \$status = \$form-\/>getData();}
+\DoxyCodeLine{\Hypertarget{_status_controller_8php_source_l00033}00033         \$entityManager-\/>persist(\$status);}
+\DoxyCodeLine{\Hypertarget{_status_controller_8php_source_l00034}00034         \$entityManager-\/>flush();}
+\DoxyCodeLine{\Hypertarget{_status_controller_8php_source_l00035}00035 }
+\DoxyCodeLine{\Hypertarget{_status_controller_8php_source_l00036}00036         \textcolor{keywordflow}{return} \$this-\/>redirectToRoute(\textcolor{stringliteral}{'status\_show'});}
+\DoxyCodeLine{\Hypertarget{_status_controller_8php_source_l00037}00037       \}}
+\DoxyCodeLine{\Hypertarget{_status_controller_8php_source_l00038}00038 }
+\DoxyCodeLine{\Hypertarget{_status_controller_8php_source_l00039}00039       \textcolor{keywordflow}{return} \$this-\/>renderForm(\textcolor{stringliteral}{'status/new.html.twig'}, [}
+\DoxyCodeLine{\Hypertarget{_status_controller_8php_source_l00040}00040           \textcolor{stringliteral}{'form'} => \$form,}
+\DoxyCodeLine{\Hypertarget{_status_controller_8php_source_l00041}00041       ]);}
+\DoxyCodeLine{\Hypertarget{_status_controller_8php_source_l00042}00042   \}}
+\DoxyCodeLine{\Hypertarget{_status_controller_8php_source_l00043}00043 }
+\DoxyCodeLine{\Hypertarget{_status_controller_8php_source_l00047}\mbox{\hyperlink{class_app_1_1_controller_1_1_status_controller_abb0bd581314002f5e3a7794c077c6a1a}{00047}}   \textcolor{keyword}{public} \textcolor{keyword}{function} \mbox{\hyperlink{class_app_1_1_controller_1_1_status_controller_abb0bd581314002f5e3a7794c077c6a1a}{showStatus}}(\mbox{\hyperlink{class_app_1_1_repository_1_1_status_repository}{StatusRepository}} \$StatusRepository,ManagerRegistry \$doctrine): Response}
+\DoxyCodeLine{\Hypertarget{_status_controller_8php_source_l00048}00048   \{}
+\DoxyCodeLine{\Hypertarget{_status_controller_8php_source_l00049}00049     \$repository = \$doctrine-\/>getRepository(Status::class);}
+\DoxyCodeLine{\Hypertarget{_status_controller_8php_source_l00050}00050     \$status = \$repository-\/>findAll();}
+\DoxyCodeLine{\Hypertarget{_status_controller_8php_source_l00051}00051     \textcolor{keywordflow}{return} \$this-\/>renderForm(\textcolor{stringliteral}{'status/show.html.twig'},[}
+\DoxyCodeLine{\Hypertarget{_status_controller_8php_source_l00052}00052       \textcolor{stringliteral}{'status'} => \$status,}
+\DoxyCodeLine{\Hypertarget{_status_controller_8php_source_l00053}00053     ]);}
+\DoxyCodeLine{\Hypertarget{_status_controller_8php_source_l00054}00054   \}}
+\DoxyCodeLine{\Hypertarget{_status_controller_8php_source_l00055}00055 }
+\DoxyCodeLine{\Hypertarget{_status_controller_8php_source_l00059}\mbox{\hyperlink{class_app_1_1_controller_1_1_status_controller_abdb85f33b341972c39d8d316ed5816ae}{00059}}   \textcolor{keyword}{public} \textcolor{keyword}{function} \mbox{\hyperlink{class_app_1_1_controller_1_1_status_controller_abdb85f33b341972c39d8d316ed5816ae}{update}}(Request \$request,ManagerRegistry \$doctrine,\mbox{\hyperlink{class_app_1_1_entity_1_1_status}{Status}} \$status): Response}
+\DoxyCodeLine{\Hypertarget{_status_controller_8php_source_l00060}00060   \{}
+\DoxyCodeLine{\Hypertarget{_status_controller_8php_source_l00061}00061     \$form = \$this-\/>createForm(StatusType::class,\$status);}
+\DoxyCodeLine{\Hypertarget{_status_controller_8php_source_l00062}00062     \$form-\/>handleRequest(\$request);}
+\DoxyCodeLine{\Hypertarget{_status_controller_8php_source_l00063}00063     \textcolor{keywordflow}{if} (\$form-\/>isSubmitted() \&\& \$form-\/>isValid())\{}
+\DoxyCodeLine{\Hypertarget{_status_controller_8php_source_l00064}00064       \$entityManager = \$doctrine-\/>getManager();}
+\DoxyCodeLine{\Hypertarget{_status_controller_8php_source_l00065}00065       \$status = \$form-\/>getData();}
+\DoxyCodeLine{\Hypertarget{_status_controller_8php_source_l00066}00066       \$entityManager-\/>persist(\$status);}
+\DoxyCodeLine{\Hypertarget{_status_controller_8php_source_l00067}00067       \$entityManager-\/>flush();}
+\DoxyCodeLine{\Hypertarget{_status_controller_8php_source_l00068}00068       \textcolor{keywordflow}{return} \$this-\/>redirectToRoute(\textcolor{stringliteral}{'status\_show'});}
+\DoxyCodeLine{\Hypertarget{_status_controller_8php_source_l00069}00069     \}}
+\DoxyCodeLine{\Hypertarget{_status_controller_8php_source_l00070}00070     \textcolor{keywordflow}{return} \$this-\/>renderForm(\textcolor{stringliteral}{'status/new.html.twig'}, [}
+\DoxyCodeLine{\Hypertarget{_status_controller_8php_source_l00071}00071         \textcolor{stringliteral}{'form'} => \$form,}
+\DoxyCodeLine{\Hypertarget{_status_controller_8php_source_l00072}00072     ]);}
+\DoxyCodeLine{\Hypertarget{_status_controller_8php_source_l00073}00073   \}}
+\DoxyCodeLine{\Hypertarget{_status_controller_8php_source_l00074}00074 }
+\DoxyCodeLine{\Hypertarget{_status_controller_8php_source_l00078}\mbox{\hyperlink{class_app_1_1_controller_1_1_status_controller_a06c8661458f7571421c5f98323bcc69f}{00078}}   \textcolor{keyword}{public} \textcolor{keyword}{function} \textcolor{keyword}{delete}(ManagerRegistry \$doctrine, \textcolor{keywordtype}{int} \$id): Response}
+\DoxyCodeLine{\Hypertarget{_status_controller_8php_source_l00079}00079   \{}
+\DoxyCodeLine{\Hypertarget{_status_controller_8php_source_l00080}00080     \$entityManager = \$doctrine-\/>getManager();}
+\DoxyCodeLine{\Hypertarget{_status_controller_8php_source_l00081}00081     \$status = \$entityManager-\/>getRepository(Status::class)-\/>find(\$id);}
+\DoxyCodeLine{\Hypertarget{_status_controller_8php_source_l00082}00082     \$entityManager-\/>remove(\$status);}
+\DoxyCodeLine{\Hypertarget{_status_controller_8php_source_l00083}00083     \$entityManager-\/>flush();}
+\DoxyCodeLine{\Hypertarget{_status_controller_8php_source_l00084}00084     \textcolor{keywordflow}{return} \$this-\/>redirectToRoute(\textcolor{stringliteral}{'status\_show'});}
+\DoxyCodeLine{\Hypertarget{_status_controller_8php_source_l00085}00085     \textcolor{comment}{//\$form = \$this-\/>createForm(StatusType::class, \$status);}}
+\DoxyCodeLine{\Hypertarget{_status_controller_8php_source_l00086}00086   \}}
+\DoxyCodeLine{\Hypertarget{_status_controller_8php_source_l00087}00087 \}}
+\DoxyCodeLine{\Hypertarget{_status_controller_8php_source_l00088}00088 ?>}
+
+\end{DoxyCode}

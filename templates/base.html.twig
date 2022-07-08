@@ -18,17 +18,11 @@
       <!-- Navbar -->
       {% block navbar %}
       <div class="w3-bar w3-border w3-light-grey">
-        {# set currentPath = path(app.request.attributes.get('_route'))%}
-        {% if currentPath starts with '/status/' %}
-          <a href="#" class="w3-bar-item w3-button">Home</a>
-          <a href="{{path('status_create')}}" class="w3-bar-item w3-button">Create</a>
-          <a href="{{path('status_show')}}" class="w3-bar-item w3-button">Read</a>
-          <a href="#" class="w3-bar-item w3-button">Delete</a>
-          <a href="#" class="w3-bar-item w3-button">Update</a>
-        {% else %}
-          <a href="/" class="w3-bar-item w3-button">Home</a>
-        {% endif #}
         <a href="/" class="w3-bar-item w3-button">Home</a>
+        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+        <a class="w3-bar-item">{{app.user.email}}</a>
+        {% endif %}
+
       </div>
       {% endblock %}
 
@@ -37,6 +31,13 @@
         <h3 class="w3-bar-item">Menu</h3>
         <a href="{{path('index')}}" class="w3-bar-item w3-button">Ticket</a>
         <a href="{{path('status_show')}}" class="w3-bar-item w3-button">Status</a>
+        {% if not is_granted('IS_AUTHENTICATED_FULLY') %}
+        <a href="{{path('app_login')}}" class="w3-bar-item w3-button">Login</a>
+        <a href="{{path('app_register')}}" class="w3-bar-item w3-button">Register</a>
+        {% else %}
+        <a href="{{path('app_logout')}}" class="w3-bar-item w3-button">Logout</a>
+        {% endif %}
+
       </div>
         <div style="margin-left:20%">
         {% block body %}{% endblock %}

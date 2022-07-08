@@ -1,0 +1,90 @@
+\hypertarget{_user_8php_source}{}\doxysection{User.\+php}
+\label{_user_8php_source}\index{gestionnaireTickets/src/Entity/User.php@{gestionnaireTickets/src/Entity/User.php}}
+\mbox{\hyperlink{_user_8php}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_user_8php_source_l00001}00001 <?php}
+\DoxyCodeLine{\Hypertarget{_user_8php_source_l00002}00002 }
+\DoxyCodeLine{\Hypertarget{_user_8php_source_l00003}00003 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespace_app_1_1_entity}{App\(\backslash\)Entity}};}
+\DoxyCodeLine{\Hypertarget{_user_8php_source_l00004}00004 }
+\DoxyCodeLine{\Hypertarget{_user_8php_source_l00005}00005 use \mbox{\hyperlink{class_app_1_1_repository_1_1_user_repository}{App\(\backslash\)Repository\(\backslash\)UserRepository}};}
+\DoxyCodeLine{\Hypertarget{_user_8php_source_l00006}00006 use Doctrine\(\backslash\)ORM\(\backslash\)Mapping as ORM;}
+\DoxyCodeLine{\Hypertarget{_user_8php_source_l00007}00007 use Symfony\(\backslash\)Bridge\(\backslash\)Doctrine\(\backslash\)Validator\(\backslash\)Constraints\(\backslash\)UniqueEntity;}
+\DoxyCodeLine{\Hypertarget{_user_8php_source_l00008}00008 use Symfony\(\backslash\)Component\(\backslash\)Security\(\backslash\)Core\(\backslash\)User\(\backslash\)PasswordAuthenticatedUserInterface;}
+\DoxyCodeLine{\Hypertarget{_user_8php_source_l00009}00009 use Symfony\(\backslash\)Component\(\backslash\)Security\(\backslash\)Core\(\backslash\)User\(\backslash\)UserInterface;}
+\DoxyCodeLine{\Hypertarget{_user_8php_source_l00010}00010 }
+\DoxyCodeLine{\Hypertarget{_user_8php_source_l00011}00011 \textcolor{preprocessor}{\#[ORM\(\backslash\)Entity(repositoryClass: UserRepository::class)]}}
+\DoxyCodeLine{\Hypertarget{_user_8php_source_l00012}00012 \textcolor{preprocessor}{\#[UniqueEntity(fields: ['email'], message: 'There is already an account with this email')]}}
+\DoxyCodeLine{\Hypertarget{_user_8php_source_l00013}\mbox{\hyperlink{class_app_1_1_entity_1_1_user}{00013}} \textcolor{keyword}{class }\mbox{\hyperlink{class_app_1_1_entity_1_1_user}{User}} \textcolor{keyword}{implements} UserInterface, PasswordAuthenticatedUserInterface}
+\DoxyCodeLine{\Hypertarget{_user_8php_source_l00014}00014 \{}
+\DoxyCodeLine{\Hypertarget{_user_8php_source_l00015}00015 \textcolor{preprocessor}{    \#[ORM\(\backslash\)Id]}}
+\DoxyCodeLine{\Hypertarget{_user_8php_source_l00016}00016 \textcolor{preprocessor}{    \#[ORM\(\backslash\)GeneratedValue]}}
+\DoxyCodeLine{\Hypertarget{_user_8php_source_l00017}00017 \textcolor{preprocessor}{    \#[ORM\(\backslash\)Column(type: 'integer')]}}
+\DoxyCodeLine{\Hypertarget{_user_8php_source_l00018}00018     \textcolor{keyword}{private} \$id;}
+\DoxyCodeLine{\Hypertarget{_user_8php_source_l00019}00019 }
+\DoxyCodeLine{\Hypertarget{_user_8php_source_l00020}00020 \textcolor{preprocessor}{    \#[ORM\(\backslash\)Column(type: 'string', length: 180, unique: true)]}}
+\DoxyCodeLine{\Hypertarget{_user_8php_source_l00021}00021     \textcolor{keyword}{private} \$email;}
+\DoxyCodeLine{\Hypertarget{_user_8php_source_l00022}00022 }
+\DoxyCodeLine{\Hypertarget{_user_8php_source_l00023}00023 \textcolor{preprocessor}{    \#[ORM\(\backslash\)Column(type: 'json')]}}
+\DoxyCodeLine{\Hypertarget{_user_8php_source_l00024}00024     \textcolor{keyword}{private} \$roles = [];}
+\DoxyCodeLine{\Hypertarget{_user_8php_source_l00025}00025 }
+\DoxyCodeLine{\Hypertarget{_user_8php_source_l00026}00026 \textcolor{preprocessor}{    \#[ORM\(\backslash\)Column(type: 'string')]}}
+\DoxyCodeLine{\Hypertarget{_user_8php_source_l00027}00027     \textcolor{keyword}{private} \$password;}
+\DoxyCodeLine{\Hypertarget{_user_8php_source_l00028}00028 }
+\DoxyCodeLine{\Hypertarget{_user_8php_source_l00029}\mbox{\hyperlink{class_app_1_1_entity_1_1_user_a12251d0c022e9e21c137a105ff683f13}{00029}}     \textcolor{keyword}{public} \textcolor{keyword}{function} \mbox{\hyperlink{class_app_1_1_entity_1_1_user_a12251d0c022e9e21c137a105ff683f13}{getId}}(): ?int}
+\DoxyCodeLine{\Hypertarget{_user_8php_source_l00030}00030     \{}
+\DoxyCodeLine{\Hypertarget{_user_8php_source_l00031}00031         \textcolor{keywordflow}{return} \$this-\/>id;}
+\DoxyCodeLine{\Hypertarget{_user_8php_source_l00032}00032     \}}
+\DoxyCodeLine{\Hypertarget{_user_8php_source_l00033}00033 }
+\DoxyCodeLine{\Hypertarget{_user_8php_source_l00034}\mbox{\hyperlink{class_app_1_1_entity_1_1_user_a02a01849f28e2535e888ae4ec87b20f2}{00034}}     \textcolor{keyword}{public} \textcolor{keyword}{function} \mbox{\hyperlink{class_app_1_1_entity_1_1_user_a02a01849f28e2535e888ae4ec87b20f2}{getEmail}}(): ?string}
+\DoxyCodeLine{\Hypertarget{_user_8php_source_l00035}00035     \{}
+\DoxyCodeLine{\Hypertarget{_user_8php_source_l00036}00036         \textcolor{keywordflow}{return} \$this-\/>email;}
+\DoxyCodeLine{\Hypertarget{_user_8php_source_l00037}00037     \}}
+\DoxyCodeLine{\Hypertarget{_user_8php_source_l00038}00038 }
+\DoxyCodeLine{\Hypertarget{_user_8php_source_l00039}\mbox{\hyperlink{class_app_1_1_entity_1_1_user_a2d22391fa86fa0eaf3b9d2a3c29880bc}{00039}}     \textcolor{keyword}{public} \textcolor{keyword}{function} \mbox{\hyperlink{class_app_1_1_entity_1_1_user_a2d22391fa86fa0eaf3b9d2a3c29880bc}{setEmail}}(\textcolor{keywordtype}{string} \$email): self}
+\DoxyCodeLine{\Hypertarget{_user_8php_source_l00040}00040     \{}
+\DoxyCodeLine{\Hypertarget{_user_8php_source_l00041}00041         \$this-\/>email = \$email;}
+\DoxyCodeLine{\Hypertarget{_user_8php_source_l00042}00042 }
+\DoxyCodeLine{\Hypertarget{_user_8php_source_l00043}00043         \textcolor{keywordflow}{return} \$this;}
+\DoxyCodeLine{\Hypertarget{_user_8php_source_l00044}00044     \}}
+\DoxyCodeLine{\Hypertarget{_user_8php_source_l00045}00045 }
+\DoxyCodeLine{\Hypertarget{_user_8php_source_l00051}\mbox{\hyperlink{class_app_1_1_entity_1_1_user_a189038d671f9143e20141026f1aa7969}{00051}}     \textcolor{keyword}{public} \textcolor{keyword}{function} \mbox{\hyperlink{class_app_1_1_entity_1_1_user_a189038d671f9143e20141026f1aa7969}{getUserIdentifier}}(): string}
+\DoxyCodeLine{\Hypertarget{_user_8php_source_l00052}00052     \{}
+\DoxyCodeLine{\Hypertarget{_user_8php_source_l00053}00053         \textcolor{keywordflow}{return} (\textcolor{keywordtype}{string}) \$this-\/>email;}
+\DoxyCodeLine{\Hypertarget{_user_8php_source_l00054}00054     \}}
+\DoxyCodeLine{\Hypertarget{_user_8php_source_l00055}00055 }
+\DoxyCodeLine{\Hypertarget{_user_8php_source_l00059}\mbox{\hyperlink{class_app_1_1_entity_1_1_user_aa676cae5ee8d7fb6862a8724adc2660d}{00059}}     \textcolor{keyword}{public} \textcolor{keyword}{function} \mbox{\hyperlink{class_app_1_1_entity_1_1_user_aa676cae5ee8d7fb6862a8724adc2660d}{getRoles}}(): array}
+\DoxyCodeLine{\Hypertarget{_user_8php_source_l00060}00060     \{}
+\DoxyCodeLine{\Hypertarget{_user_8php_source_l00061}00061         \$roles = \$this-\/>roles;}
+\DoxyCodeLine{\Hypertarget{_user_8php_source_l00062}00062         \textcolor{comment}{// guarantee every user at least has ROLE\_USER}}
+\DoxyCodeLine{\Hypertarget{_user_8php_source_l00063}00063         \$roles[] = \textcolor{stringliteral}{'ROLE\_USER'};}
+\DoxyCodeLine{\Hypertarget{_user_8php_source_l00064}00064 }
+\DoxyCodeLine{\Hypertarget{_user_8php_source_l00065}00065         \textcolor{keywordflow}{return} array\_unique(\$roles);}
+\DoxyCodeLine{\Hypertarget{_user_8php_source_l00066}00066     \}}
+\DoxyCodeLine{\Hypertarget{_user_8php_source_l00067}00067 }
+\DoxyCodeLine{\Hypertarget{_user_8php_source_l00068}\mbox{\hyperlink{class_app_1_1_entity_1_1_user_aa3236c9c6688d04df16ea0ab3065530e}{00068}}     \textcolor{keyword}{public} \textcolor{keyword}{function} \mbox{\hyperlink{class_app_1_1_entity_1_1_user_aa3236c9c6688d04df16ea0ab3065530e}{setRoles}}(array \$roles): self}
+\DoxyCodeLine{\Hypertarget{_user_8php_source_l00069}00069     \{}
+\DoxyCodeLine{\Hypertarget{_user_8php_source_l00070}00070         \$this-\/>roles = \$roles;}
+\DoxyCodeLine{\Hypertarget{_user_8php_source_l00071}00071 }
+\DoxyCodeLine{\Hypertarget{_user_8php_source_l00072}00072         \textcolor{keywordflow}{return} \$this;}
+\DoxyCodeLine{\Hypertarget{_user_8php_source_l00073}00073     \}}
+\DoxyCodeLine{\Hypertarget{_user_8php_source_l00074}00074 }
+\DoxyCodeLine{\Hypertarget{_user_8php_source_l00078}\mbox{\hyperlink{class_app_1_1_entity_1_1_user_a04e0957baeb7acde9c0c86556da2d43f}{00078}}     \textcolor{keyword}{public} \textcolor{keyword}{function} \mbox{\hyperlink{class_app_1_1_entity_1_1_user_a04e0957baeb7acde9c0c86556da2d43f}{getPassword}}(): string}
+\DoxyCodeLine{\Hypertarget{_user_8php_source_l00079}00079     \{}
+\DoxyCodeLine{\Hypertarget{_user_8php_source_l00080}00080         \textcolor{keywordflow}{return} \$this-\/>password;}
+\DoxyCodeLine{\Hypertarget{_user_8php_source_l00081}00081     \}}
+\DoxyCodeLine{\Hypertarget{_user_8php_source_l00082}00082 }
+\DoxyCodeLine{\Hypertarget{_user_8php_source_l00083}\mbox{\hyperlink{class_app_1_1_entity_1_1_user_a81e0f429784973551fb5417d5b92b0db}{00083}}     \textcolor{keyword}{public} \textcolor{keyword}{function} \mbox{\hyperlink{class_app_1_1_entity_1_1_user_a81e0f429784973551fb5417d5b92b0db}{setPassword}}(\textcolor{keywordtype}{string} \$password): self}
+\DoxyCodeLine{\Hypertarget{_user_8php_source_l00084}00084     \{}
+\DoxyCodeLine{\Hypertarget{_user_8php_source_l00085}00085         \$this-\/>password = \$password;}
+\DoxyCodeLine{\Hypertarget{_user_8php_source_l00086}00086 }
+\DoxyCodeLine{\Hypertarget{_user_8php_source_l00087}00087         \textcolor{keywordflow}{return} \$this;}
+\DoxyCodeLine{\Hypertarget{_user_8php_source_l00088}00088     \}}
+\DoxyCodeLine{\Hypertarget{_user_8php_source_l00089}00089 }
+\DoxyCodeLine{\Hypertarget{_user_8php_source_l00093}\mbox{\hyperlink{class_app_1_1_entity_1_1_user_ac565b8c00fe93ce673f8237849f072a6}{00093}}     \textcolor{keyword}{public} \textcolor{keyword}{function} \mbox{\hyperlink{class_app_1_1_entity_1_1_user_ac565b8c00fe93ce673f8237849f072a6}{eraseCredentials}}()}
+\DoxyCodeLine{\Hypertarget{_user_8php_source_l00094}00094     \{}
+\DoxyCodeLine{\Hypertarget{_user_8php_source_l00095}00095         \textcolor{comment}{// If you store any temporary, sensitive data on the user, clear it here}}
+\DoxyCodeLine{\Hypertarget{_user_8php_source_l00096}00096         \textcolor{comment}{// \$this-\/>plainPassword = null;}}
+\DoxyCodeLine{\Hypertarget{_user_8php_source_l00097}00097     \}}
+\DoxyCodeLine{\Hypertarget{_user_8php_source_l00098}00098 \}}
+
+\end{DoxyCode}

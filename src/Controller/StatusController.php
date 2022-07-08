@@ -61,7 +61,6 @@ class StatusController extends AbstractController
     $form = $this->createForm(StatusType::class,$status);
     $form->handleRequest($request);
     if ($form->isSubmitted() && $form->isValid()){
-      echo "test";
       $entityManager = $doctrine->getManager();
       $status = $form->getData();
       $entityManager->persist($status);

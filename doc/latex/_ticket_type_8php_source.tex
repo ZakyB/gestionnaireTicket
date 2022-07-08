@@ -1,0 +1,38 @@
+\hypertarget{_ticket_type_8php_source}{}\doxysection{Ticket\+Type.\+php}
+\label{_ticket_type_8php_source}\index{gestionnaireTickets/src/Form/Type/TicketType.php@{gestionnaireTickets/src/Form/Type/TicketType.php}}
+\mbox{\hyperlink{_ticket_type_8php}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_ticket_type_8php_source_l00001}00001 <?php}
+\DoxyCodeLine{\Hypertarget{_ticket_type_8php_source_l00002}00002 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespace_app_1_1_form_1_1_type}{App\(\backslash\)Form\(\backslash\)Type}};}
+\DoxyCodeLine{\Hypertarget{_ticket_type_8php_source_l00003}00003 }
+\DoxyCodeLine{\Hypertarget{_ticket_type_8php_source_l00004}00004 use \mbox{\hyperlink{class_app_1_1_entity_1_1_status}{App\(\backslash\)Entity\(\backslash\)Status}};}
+\DoxyCodeLine{\Hypertarget{_ticket_type_8php_source_l00005}00005 use Doctrine\(\backslash\)Persistence\(\backslash\)ManagerRegistry;}
+\DoxyCodeLine{\Hypertarget{_ticket_type_8php_source_l00006}00006 use Symfony\(\backslash\)Component\(\backslash\)Form\(\backslash\)AbstractType;}
+\DoxyCodeLine{\Hypertarget{_ticket_type_8php_source_l00007}00007 use Symfony\(\backslash\)Component\(\backslash\)Form\(\backslash\)Extension\(\backslash\)Core\(\backslash\)Type\(\backslash\)DateType;}
+\DoxyCodeLine{\Hypertarget{_ticket_type_8php_source_l00008}00008 use Symfony\(\backslash\)Component\(\backslash\)Form\(\backslash\)Extension\(\backslash\)Core\(\backslash\)Type\(\backslash\)SubmitType;}
+\DoxyCodeLine{\Hypertarget{_ticket_type_8php_source_l00009}00009 use Symfony\(\backslash\)Component\(\backslash\)Form\(\backslash\)Extension\(\backslash\)Core\(\backslash\)Type\(\backslash\)TextType;}
+\DoxyCodeLine{\Hypertarget{_ticket_type_8php_source_l00010}00010 use Symfony\(\backslash\)Component\(\backslash\)Form\(\backslash\)FormBuilderInterface;}
+\DoxyCodeLine{\Hypertarget{_ticket_type_8php_source_l00011}00011 use Symfony\(\backslash\)Bridge\(\backslash\)Doctrine\(\backslash\)Form\(\backslash\)Type\(\backslash\)EntityType;}
+\DoxyCodeLine{\Hypertarget{_ticket_type_8php_source_l00012}00012 }
+\DoxyCodeLine{\Hypertarget{_ticket_type_8php_source_l00013}\mbox{\hyperlink{class_app_1_1_form_1_1_type_1_1_ticket_type}{00013}} \textcolor{keyword}{class }\mbox{\hyperlink{class_app_1_1_form_1_1_type_1_1_ticket_type}{TicketType}} \textcolor{keyword}{extends} AbstractType}
+\DoxyCodeLine{\Hypertarget{_ticket_type_8php_source_l00014}00014 \{}
+\DoxyCodeLine{\Hypertarget{_ticket_type_8php_source_l00015}\mbox{\hyperlink{class_app_1_1_form_1_1_type_1_1_ticket_type_a83c3745710374f9c5a1eb0686fe2dfab}{00015}}     \textcolor{keyword}{public} \textcolor{keyword}{function} \mbox{\hyperlink{class_app_1_1_form_1_1_type_1_1_ticket_type_a83c3745710374f9c5a1eb0686fe2dfab}{buildForm}}(FormBuilderInterface \$builder, array \$options): void}
+\DoxyCodeLine{\Hypertarget{_ticket_type_8php_source_l00016}00016     \{}
+\DoxyCodeLine{\Hypertarget{_ticket_type_8php_source_l00017}00017         \textcolor{comment}{/*\$repository = \$doctrine-\/>getRepository(Status::class);}}
+\DoxyCodeLine{\Hypertarget{_ticket_type_8php_source_l00018}00018 \textcolor{comment}{        \$status = \$repository-\/>findAll();*/}}
+\DoxyCodeLine{\Hypertarget{_ticket_type_8php_source_l00019}00019         \$builder}
+\DoxyCodeLine{\Hypertarget{_ticket_type_8php_source_l00020}00020             -\/>add(\textcolor{stringliteral}{'titre'}, TextType::class)}
+\DoxyCodeLine{\Hypertarget{_ticket_type_8php_source_l00021}00021             -\/>add(\textcolor{stringliteral}{'date'}, DateType::class)}
+\DoxyCodeLine{\Hypertarget{_ticket_type_8php_source_l00022}00022             -\/>add(\textcolor{stringliteral}{'status'}, EntityType::class, [}
+\DoxyCodeLine{\Hypertarget{_ticket_type_8php_source_l00023}00023               \textcolor{stringliteral}{'class'} => Status::class,}
+\DoxyCodeLine{\Hypertarget{_ticket_type_8php_source_l00024}00024               \textcolor{stringliteral}{'choice\_label'} => \textcolor{stringliteral}{'name'},}
+\DoxyCodeLine{\Hypertarget{_ticket_type_8php_source_l00025}00025             ])}
+\DoxyCodeLine{\Hypertarget{_ticket_type_8php_source_l00026}00026             -\/>add(\textcolor{stringliteral}{'message'}, TextType::class)}
+\DoxyCodeLine{\Hypertarget{_ticket_type_8php_source_l00027}00027             -\/>add(\textcolor{stringliteral}{'save'}, SubmitType::class)}
+\DoxyCodeLine{\Hypertarget{_ticket_type_8php_source_l00028}00028         ;}
+\DoxyCodeLine{\Hypertarget{_ticket_type_8php_source_l00029}00029     \}}
+\DoxyCodeLine{\Hypertarget{_ticket_type_8php_source_l00030}00030 \}}
+\DoxyCodeLine{\Hypertarget{_ticket_type_8php_source_l00031}00031 }
+\DoxyCodeLine{\Hypertarget{_ticket_type_8php_source_l00032}00032  ?>}
+
+\end{DoxyCode}
